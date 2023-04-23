@@ -1,0 +1,109 @@
+<head>
+  <style>
+    body {margin: 0;}
+  </style>
+
+  <script src="https://unpkg.com/d3"></script>
+  <script src="https://unpkg.com/globe.gl"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+  <link rel="stylesheet" href="./main.css" />
+  <link rel="stylesheet" href="./forestcover.css"/>
+</head>
+
+<body>
+  <div class="split left cn" style="overflow: auto;">
+    <div class="overlay">
+      <div class="overlay__inner">
+        <h1 class="overlay__title">Forest Cover</h1>
+      <p class="overlay__description">
+        Forest cover across nations in the period from 1990 to 2020 has been visualised.
+        <strong> A json file has been used to gather the data</strong>
+      </p>
+      <h3 class="overlay__title">
+        Visual Insights
+      </h3>
+      <div>
+        <canvas id="globalgraph" class="graphcanvas"></canvas>
+        <p class="overlay__description">There was a steep decline in the global forest cover in 2016
+          due to widespread forest fires
+        </p>
+        <a class="overlay__link" href="https://www.wri.org/insights/global-tree-cover-loss-rose-51-percent-2016">(Know more)</a>
+        <br><br>
+      </div>
+      <div>
+        <canvas id="yearlygraph" class="graphcanvas"></canvas>
+        <p class="overlay__description">Country with most forest cover:
+          <span id="bestcountry"></span><br/>
+          Country with the most change in forest cover: Angola
+        </p>
+        <br>
+      </div>
+      <div>
+        <h2>Erosion of Forest Cover</h2>
+        <br>
+        <br>
+        <h4>Due to Natural Causes</h4>
+        <br>
+        <p>
+
+          Natural disasters such as wildfires, floods, hurricanes, and landslides can result in widespread damage to forests. 
+          Wildfires can burn down large areas of forest, while floods can uproot trees and wash away soil. 
+          Hurricanes can cause trees to snap or uproot, and landslides can bury trees under debris.
+          These types of events can lead to the loss of forest cover and the destruction of habitat for many plant and animal species.
+        </p>
+          <br>
+          <br>
+          <h4>Due to Human Activities</h4>
+          <br>
+        <p>
+          Human activities, such as deforestation, agriculture, logging, and urbanization, also have a significant impact on forest cover.
+          Deforestation is the deliberate clearing of forests, often for the purpose of agriculture or urbanization.
+          Logging can result in the removal of large areas of forest, and the construction of roads and infrastructure can fragment forests and reduce their size.
+          
+          These activities can lead to a decline in forest cover, as well as a loss of biodiversity and ecosystem services.
+        </p>
+      </div>
+      <br>
+      <br>
+      <div>
+        <h2>Preservation of Forest Cover</h2>
+        <br>
+        <br>
+        <li><i>Implementing sustainable forest management practices:</i>> This involves balancing the use of forests with their conservation and protection, through practices such as selective logging, conservation of biodiversity, and reforestation.</li>
+        <br>
+        <li> <i>Enforcing laws and regulations:</i> Governments can enforce laws and regulations to prevent illegal logging, deforestation, and other destructive activities, and hold those who violate the law accountable.</li>
+        <br>
+      
+        <li><i>Supporting forest restoration and reforestation:</i> Restoring degraded forests and planting new trees can help to increase forest cover and provide habitats for wildlife.</li>
+      
+        <br>
+        <br>
+      </div>
+      
+    
+    </div>
+  </div>
+  <!-- <div class="side-info-panel">
+    <div>
+    </div>
+  </div> -->
+  <div class="split right">
+    <div class="top-info-container">
+      <div style="display: flex; justify-content: center;"></div>
+      <button class="button button1" onclick="location.href='./forestcover.html'" type="button">Forest Cover</button>
+      <button class="button button2" onclick="location.href='./volcanoes.html'" type="button">Volcanoes</button>
+      <button class="button button3" onclick="location.href='./earthquakes.html'" type="button">Earthquakes</button>
+      <button class="button button4" onclick="location.href='./satellites.html'" type="button">Satellites</button>
+    </div>
+    <div id="globeViz"></div>
+    <div class="bottom-info-container">
+      <div style="display: flex; justify-content: center;">
+        <div class="slidecontainer">
+          <input type="range" min="1990" max="2020" value="2020" class="slider" id="myRange">
+          <p>Year: <span id="demo"></span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="./forestcover.js"></script>
+</body>

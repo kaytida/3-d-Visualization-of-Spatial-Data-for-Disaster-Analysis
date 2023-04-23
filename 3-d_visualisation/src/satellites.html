@@ -1,0 +1,135 @@
+<head>
+	<style>
+		body {
+			margin: 0;
+		}
+
+		#time-log {
+			position: absolute;
+			font-size: 12px;
+			font-family: sans-serif;
+			padding: 5px;
+			border-radius: 3px;
+			background-color: rgba(200, 200, 200, 0.1);
+			color: lavender;
+			bottom: 10px;
+			right: 10px;
+		}
+	</style>
+	<link rel="stylesheet" href="./main.css" />
+	<link rel="stylesheet" href="./satellites.css" />
+	<script src="//unpkg.com/three"></script>
+	<script src="//unpkg.com/satellite.js/dist/satellite.min.js"></script>
+	<script src="//unpkg.com/globe.gl"></script>
+
+
+	<!--  <script src="../../dist/globe.gl.js"></script>-->
+</head>
+
+<body>
+	<div class="split right">
+		<div id="chart"></div>
+		<div id="time-log"></div>
+		<div class="top-info-container">
+			<div style="display: flex; justify-content: center;"></div>
+			<button class="button button1" onclick="location.href='./forestcover.html'" type="button">Forest
+				Cover</button>
+			<button class="button button2" onclick="location.href='./volcanoes.html'" type="button">Volcanoes</button>
+			<button class="button button3" onclick="location.href='./earthquakes.html'"
+				type="button">Earthquakes</button>
+			<button class="button button4" onclick="location.href='./satellites.html'" type="button">Satellites</button>
+			<script src="./satellites.js"></script>
+		</div>
+	</div>
+	<div class="split left cn" style="overflow: auto;">
+		<div class="overlay">
+			<div class="overlay__inner">
+				<h1 class="overlay__title">
+					Satellite Dataset Insights
+				</h1>
+				<p class="overlay__description">
+					A two-line element set (TLE) is a data format encoding a list of orbital elements of an
+					Earth-orbiting object for a given point in time, the epoch. Using a suitable prediction formula, the
+					state (position and velocity) at any point in the past or future can be estimated to some accuracy.
+					The estimated data can be used to visualize the trajectory of the satellite.
+				</p>
+
+				<br>
+
+				<br>
+				<h3>LANDSAT</h3>
+				<br>
+				<p class="overlay__description">The Landsat Program is a series of Earth-observing satellite missions
+					jointly managed by NASA and the U.S. Geological Survey.Landsat satellites have the optimal ground
+					resolution and spectral bands to efficiently track land use and to document land change due to
+					climate change, urbanization, drought, wildfire, biomass changes (carbon assessments), and a host of
+					other natural and human-caused changes.The Landsat 7 satellite orbits the the Earth in a sun-synchronous,
+					near-polar orbit, at an altitude of 705 km (438 mi), inclined at 98.2
+					degrees, and circles the Earth every 99 minutes. </p>
+				<br>
+
+				<h3>SENTINEL</h3>
+				<br>
+				<p class="overlay__description">Sentinel is a family of European Union Earth observation missions that
+					aim to provide continuous and reliable data for monitoring environmental changes, managing natural
+					resources, and supporting security and humanitarian activities. The Sentinel program is managed by
+					the European Space Agency (ESA) in partnership with the European Commission.There are currently
+					seven Sentinel satellites in orbit, each equipped with different sensors and instruments that
+					capture a range of data types, including optical, radar, and atmospheric measurements. The Sentinel
+					satellites operate in a polar, sun-synchronous orbit, which means that they pass over the same area
+					of the Earth at the same time of day, allowing for consistent observations over time.</p>
+				<br>
+
+				<h3>ISS</h3>
+				<br>
+				<p class="overlay__description">The ISS (International Space Station) is not a satellite, but rather a
+					large spacecraft that is in orbit around the Earth. It is a joint project of five space agencies,
+					including NASA (USA), Roscosmos (Russia), JAXA (Japan), ESA (Europe), and CSA (Canada).It orbits the
+					Earth at an altitude of approximately 408 kilometers, completing one orbit every 90 minutes.The ISS
+					serves as a laboratory for scientific research in areas such as physics, biology, and meteorology.
+					It also plays an important role in testing new technologies for space exploration, as well as in
+					supporting the development of human spaceflight capabilities.
+
+
+				</p>
+				<br>
+
+
+
+
+
+				<!-- embed image -->
+				<br><br>
+
+				<img src="../images/satellites_stats.png" alt="Satellite" style="align-self: center;">
+
+			</div>
+		</div>
+	</div>
+	<div class="legend cn bottom">
+		<div class="overlay" style="padding-top: 2rem">
+			<div class="overlay__inner">
+				<table>
+					<tr>
+						<td>
+							<div class="legend__color" style="background-color: #ff0000"></div>
+						</td>
+						<td>LANDSAT - 8</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="legend__color" style="background-color: #00ff00"></div>
+						</td>
+						<td>SENTINEL - 7</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="legend__color" style="background-color: #0000ff"></div>
+						</td>
+						<td>ISS - 1</td>
+					</tr>
+
+
+			</div>
+		</div>
+</body>

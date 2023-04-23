@@ -1,0 +1,136 @@
+body {
+    margin: 0;
+    color: white;
+  }
+    a:-webkit-any-link {
+      color: #25b2bc;
+      cursor: pointer;
+      text-decoration: underline;
+      text-decoration-line: underline;
+      text-decoration-thickness: initial;
+      text-decoration-style: initial;
+      text-decoration-color: #25b2bc;
+    }
+  .split {
+    width: 50%;
+    position: fixed;
+  
+    margin-bottom: 2rem;
+  }
+  
+  .left {
+    left: 0;
+    background-color: #111;
+  }
+  
+    ::-webkit-scrollbar {
+      width: 2px;
+    }
+  .right {
+    right: 0;
+  }
+
+  .bottom {
+    bottom: 100;
+  }
+  
+  h1, h3 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  h3 {
+    font-size: 2rem;
+    line-height: 3rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+    
+  }
+  
+  .cn {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+  }
+
+  .legend {
+    position: absolute;
+    left: 50%;
+    top: 93%;
+    width: 15%;
+  }
+
+  .legend__color {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    margin-right: 1rem;
+  }
+  
+  .overlay {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 5rem;
+  }
+  
+  .overlay__inner {
+    max-height: 100vh;
+    max-width: 80%;
+  }
+  
+  .overlay__title {
+    font-size: 3rem;
+    line-height: 3rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+  
+  .overlay__description {
+    font-size: 1rem;
+    line-height: 1.75rem;
+    margin-bottom: 2rem;
+  }
+  
+  @media (prefers-contrast: high) {
+    .orb-canvas {
+      display: none;
+    }
+  }
+  
+  @media only screen and (max-width: 1140px) {
+    .overlay {
+      padding: 8rem 4rem;
+    }
+  }
+  
+  @media only screen and (max-width: 840px) {
+    body {
+      padding: 1.5rem;
+    }
+  
+    .overlay {
+      padding: 4rem;
+      height: auto;
+    }
+  
+    .overlay__title {
+      font-size: 1.25rem;
+      line-height: 2rem;
+      margin-bottom: 1.5rem;
+    }
+  
+    .overlay__description {
+      font-size: 0.875rem;
+      line-height: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .overlay {
+      padding: 1.5rem;
+    }
+  }

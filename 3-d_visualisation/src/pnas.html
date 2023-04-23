@@ -1,0 +1,74 @@
+<head>
+	<style>
+		body {
+			margin: 0;
+		}
+	</style>
+
+	<script src="//unpkg.com/globe.gl"></script>
+	<link rel="stylesheet" href="./main.css" />
+	<link rel="stylesheet" href="./satellites.css" />
+	<!--<script src="../../dist/globe.gl.js"></script>-->
+</head>
+
+<body>
+	<div class="split right">
+		<div id="globeViz"></div>
+		<div class="top-info-container">
+			<div style="display: flex; justify-content: center;"></div>
+			<button class="button button1" onclick="location.href='./forestcover.html'" type="button">Forest Cover</button>
+			<button class="button button2" onclick="location.href='./volcanoes.html'" type="button">Volcanoes</button>
+			<button class="button button3" onclick="location.href='./earthquakes.html'" type="button">Earthquakes</button>
+			<button class="button button4" onclick="location.href='./satellites.html'" type="button">Satellites</button>
+		</div> -->
+	</div>
+
+
+
+
+
+
+	<div class="split left cn" style="overflow: auto;">
+		<div class="overlay">
+			<div class="overlay__inner">
+				<h1 class="overlay__title">
+					An estimate of the number of tropical tree species
+				</h1>
+				<p class="overlay__description">
+					The high species richness of tropical forests has long been recognized, yet there remains substantial uncertainty
+					regarding the actual number of tropical tree species. Using a pantropical tree inventory database from closed canopy
+					forests, consisting of 657,630 trees belonging to 11,371 species, we use a fitted value of Fisher’s alpha and an
+					approximate pantropical stem total to estimate the minimum number of tropical forest tree species to fall between
+					∼40,000 and ∼53,000, i.e., at the high end of previous estimates. Contrary to common assumption, the Indo-Pacific region
+					was found to be as species-rich as the Neotropics, with both regions having a minimum of ∼19,000–25,000 tree species.
+					Continental Africa is relatively depauperate with a minimum of ∼4,500–6,000 tree species. Very few species are shared
+					among the African, American, and the Indo-Pacific regions. We provide a methodological framework for estimating species
+					richness in trees that may help refine species richness estimates of tree-dependent taxa.
+				</p>
+				<h3 class="overlay__description">
+					<a href="https://www.pnas.org/doi/10.1073/pnas.1423147112" target="_blank">Read more</a>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		fetch('../data/rcp.json').then(res => res.json()).then(places =>
+		{
+	
+			Globe()
+				.width(1000)
+				.globeImageUrl('//unpkg.com/three-globe/example/img/earth-night.jpg')
+				.backgroundImageUrl('//unpkg.com/three-globe/example/img/night-sky.png')
+				.labelsData(places.plotinfo)
+				.labelLat(d => d.Lat)
+				.labelLng(d => d.Long)
+				.labelText(d => Math.round(d.totstem).toString().concat("(").concat(d.Minor.slice(0,3)).concat(")"))
+				.labelSize(0.2)
+				.labelDotRadius(d => Math.log(d.totstem)*0.015 )
+				.labelColor(() => '#25B2BC')
+				.labelResolution(2)
+				(document.getElementById('globeViz'))
+				.pointOfView({ lat: 10, lng: 75, altitude: 0.3 })
+		});
+	</script>
+</body>

@@ -1,0 +1,250 @@
+<head>
+	<style>
+		body {
+			margin: 0;
+			color: white;
+		}
+
+		.split {
+			height: 100%;
+			width: 50%;
+			position: fixed;
+			top: 0;
+		}
+
+		.left {
+			left: 0;
+			background-color: #111;
+		}
+
+		.right {
+			right: 0;
+		}
+
+		h1 {
+			color: white;
+			text-align: center;
+			font-size: 30px;
+			font-weight: 300;
+		}
+
+		.cn {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.overlay {
+			width: 100%;
+			display: flex;
+			align-items: center;
+			padding-top: 5rem;
+
+		}
+
+		.overlay__inner {
+			max-height: 100vh;
+			max-width: 36rem;
+			padding: 10rem;
+		}
+
+		.overlay__title {
+			font-size: 1.875rem;
+			line-height: 2.75rem;
+			font-weight: 700;
+			letter-spacing: -0.025em;
+		}
+
+		.overlay__description {
+			font-size: 1rem;
+			line-height: 1.75rem;
+			margin-bottom: 3rem;
+		}
+
+		@media (prefers-contrast: high) {
+			.orb-canvas {
+				display: none;
+			}
+		}
+
+		@media only screen and (max-width: 1140px) {
+			.overlay {
+				padding: 8rem 4rem;
+			}
+		}
+
+		@media only screen and (max-width: 840px) {
+			body {
+				padding: 1.5rem;
+			}
+
+			.overlay {
+				padding: 4rem;
+				height: auto;
+			}
+
+			.overlay__title {
+				font-size: 1.25rem;
+				line-height: 2rem;
+				margin-bottom: 1.5rem;
+			}
+
+			.overlay__description {
+				font-size: 0.875rem;
+				line-height: 1.5rem;
+				margin-bottom: 2.5rem;
+			}
+		}
+
+		@media only screen and (max-width: 600px) {
+			.overlay {
+				padding: 1.5rem;
+			}
+		}
+	</style>
+	<link rel="stylesheet" href="./main.css" />
+
+	<script src="//unpkg.com/d3"></script>
+	<script src="//unpkg.com/polished@3.5.2/dist/polished.js"></script>
+
+	<script src="//unpkg.com/globe.gl"></script>
+</head>
+
+<body>
+	<div class="split left cn" style="overflow: auto;">
+		<div class="overlay">
+
+			<div class="overlay__inner">
+				<h1 class="overlay__title">
+					VOLCANOES DATASET INSIGHTS
+				</h1>
+				<p class="overlay__description">
+					World Volcanoes visualisation.
+					<strong>A json file has been used to gather the data.</strong>
+				</p>
+
+				<h3 class="overlay__title">
+					Volcanoes
+				</h3>
+				<br>
+				<br>
+				<h3>
+					
+				</h3>
+				<br>
+				<div>
+					<p>
+						A volcano is a rupture in the crust of a planetary-mass object, such as Earth, that allows hot lava, 
+						volcanic ash, and gases to escape from a magma chamber below the surface.
+					</p>
+				</div>
+				<br>
+				<br>
+				<div>
+					<br>
+					<canvas id="perCountry" width="800" height="800"></canvas>
+					<br>
+				</div>
+				<div>
+					<h3>
+						Preparing for a Volcanic Eruption
+					</h3>
+					<br>
+					<p>
+						Be prepared either to shelter or to evacuate. Develop an evacuation plan and a sheltering plan for 
+						yourself, your family, and others in your household.
+					</p>
+					<br>
+					<br>
+					<p>
+						Always have an emergency supply kit handy. The emergency kit should contain:
+					</p>
+					<br>
+					<ul   margin-left: 10, padding-left: 10>
+						
+						<li>
+							Flashlight and extra batteries
+						</li>
+						<li>
+							Emergency food and water
+						</li>
+						<li>
+							Manual (nonelectric) can opener
+						</li>						
+						<li>
+							Essential medicines
+						</li>						
+						<li>
+							Sturdy shoes
+						</li>
+						<li>
+							Respiratory (breathing) protection
+						</li>
+						<li>
+							Eye protection (goggles)
+						</li>						
+						<li>
+							Respiratory (breathing) protection
+						</li>
+						<li>
+							Battery Powered Radio
+						</li>		
+						<li>
+							First Aid Kit
+						</li>
+					<br>
+				</div>
+				<br>
+				<br>
+				<br>
+				<div>
+					<h3>
+						In Case of Volcanic Eruption
+					</h3>
+					<br>
+					<p>
+						Follow the evacuation order issued by authorities and evacuate immediately from the volcano
+						 affected area to avoid flying debris, hot gases, lateral blast and lava flow.
+					</p>
+					<br>
+					<ul>
+						<li>
+							Tune in the radio or television for volcano updates.
+						</li>
+						<li>
+							Listen for disaster sirens and warning signals.
+						</li>
+						<li>
+							Review your emergency plan and gather your emergency supplies. Be sure to pack at least a 1-week supply of prescription medications.
+						</li>
+						<br>
+						<br>
+					</ul>
+				</div>
+				
+
+
+
+			</div>
+		</div>
+	</div>
+	</div>
+
+	<div class="split right">
+		<div id="globeViz"></div>
+		<div class="top-info-container">
+
+
+			<div style="display: flex; justify-content: center;"></div>
+			<button class="button button1" onclick="location.href='./forestcover.html'" type="button">Forest
+				Cover</button>
+			<button class="button button2" onclick="location.href='./volcanoes.html'" type="button">Volcanoes</button>
+			<button class="button button3" onclick="location.href='./earthquakes.html'"
+				type="button">Earthquakes</button>
+			<button class="button button4" onclick="location.href='./satellites.html'" type="button">Satellites</button>
+		</div>
+	</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="./volcanoes.js"></script>
+</body>

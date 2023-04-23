@@ -1,0 +1,242 @@
+<head>
+  <link rel="stylesheet" href="./main.css" />
+  <link rel="stylesheet" href="./earthquakes.css" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,0,0" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,0,200" />
+
+  <script src="//unpkg.com/d3"></script>
+  <script src="//unpkg.com/globe.gl"></script>
+  <!--<script src="../../dist/globe.gl.js"></script>-->
+</head>
+
+<body>
+  <div class="split left cn" style="overflow: auto;">
+    <div class="overlay">
+      <div class="overlay__inner">
+
+        <h1 class="overlay__title">
+          Earthquakes Dataset Insights
+        </h1>
+        <br>
+        <p class="overlay__description">
+          Earthquakes in the period of 23/10/2022 - 23/4/2023 in all the countries throughout the world has been
+          visualised here. Data has been sourced from US Geological website, where the format is in GeoJSON form.
+        </p>
+        <br>
+        <br>
+        <h3>
+          2D Visualisations
+        </h3>
+        <div>
+          <canvas id="mag" width="800" height="600"></canvas>
+          <br>
+          <br>
+          <br>
+          <canvas id="top10" width="800" height="800"></canvas>
+        </div>
+        <br>
+        <br>
+
+        <h3>Precautions and preparedness</h3>
+        <br>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box}
+body {font-family: "Lato", sans-serif;}
+
+/* Style the tab */
+.tab {
+  float: left;
+  border: 1px solid #ccc;
+  outline: green;
+  background-color: #e73e3e;
+  width: 30%;
+  height: 300px;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  display: block;
+  background-color: inherit;
+  color: black;
+  padding: 22px 16px;
+  width: 100%;
+  border: green;
+  outline: blue;
+  text-align: left;
+  cursor: pointer;
+  font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current "tab button" class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  float: left;
+  padding: 0px 12px;
+  border: 1px solid #ccc;
+  width: 70%;
+  border-left: none;
+  height: 300px;
+  display: none;
+}
+
+/* Clear floats after the tab */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+</style>
+</head>
+<body>
+
+<div class="tab">
+  <button class="tablinks" onmouseover="openCity(event, 'London')" >Before</button>
+  <button class="tablinks" onmouseover="openCity(event, 'Paris')">During</button>
+  <button class="tablinks" onmouseover="openCity(event, 'Tokyo')">After</button>
+</div>
+
+<div id="London" class="tabcontent">
+        <li>
+          Learn how to act in the case of an earthquake by participating in simulations in your
+          community/workplace/school.
+        </li>
+        <br>
+        <li>
+          Locate the safest places in your home/workplace/school to take shelter in an earthquake, and identify
+          evacuation routes.
+        </li>
+        <br>
+        <li>
+          Keep emergency telephone numbers - civil defense, ambulance, hospitals, fire department, police, etc., close
+          at hand
+        </li>
+        <br>
+        <li>Make sure you have sufficient emergency supplies, including clean water, non-perishable foods, prescription
+          drugs, first aid kit, batteries, radio, and food for pets. Keep important documents such as passports or
+          identity documents with you.
+
+        </li>
+</div>
+
+<div id="Paris" class="tabcontent">
+  <li>
+    Stay away from windows and from objects that could fall, such as loose electrical wires. 
+  </li>
+  <br>
+  <li>
+    Go to a safe place and take a protective position next to a wall or solid piece of furniture.
+  </li>
+  <br>
+  <li>
+    If you need to evacuate, use stairs, not elevators.
+  </li>
+  <br>
+  <li>Keep calm and follow the instructions of civil defense officials and other authorities.
+
+  </li> 
+</div>
+
+<div id="Tokyo" class="tabcontent">
+  <li>
+    Check the condition of your dwelling. If you consider it unsafe, notify the authorities and go to a temporary shelter.
+  </li>
+  <br>
+  <li>
+    Be careful with electrical currents, propane/natural gas lines, and sources of chemical hazards.
+  </li>
+  <br>
+  <li>
+    Make sure that all injuries are thoroughly evaluated by health workers.Health services may also have suffered structural damage and are not always able see patients. It is important to find out what health centers and hospitals are functioning.
+  </li>
+  <br>
+  <li>Important supplies like medicine, safe drinking water and food may be in short supply. So, be careful to use them in a judicious and resourceful manner
+.
+  </li>
+</div>
+
+<div class="clearfix"></div>
+
+<script>
+function openCity(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>
+
+
+
+
+
+      </div>
+    </div>
+  </div>
+
+  <div class="split right">
+    <div id="globeViz"></div>
+    <div class="top-info-container">
+      <div style="display: flex; justify-content: center;"></div>
+      <button class="button button1" onclick="location.href='./forestcover.html'" type="button">Forest Cover</button>
+      <button class="button button2" onclick="location.href='./volcanoes.html'" type="button">Volcanoes</button>
+      <button class="button button3" onclick="location.href='./earthquakes.html'" type="button">Earthquakes</button>
+      <button class="button button4" onclick="location.href='./satellites.html'" type="button">Satellites</button>
+      <!-- <button class="button button4" onclick="location.href='./pnas.html'" type="button">Custom</button> -->
+    </div>
+  </div>
+
+  <script>
+    const weightColor = d3.scaleLinear()
+      .domain([0, 100])
+      .range(['lightblue', 'darkred'])
+      .clamp(true);
+
+    const myGlobe = Globe()
+      .globeImageUrl('//unpkg.com/three-globe/example/img/earth-night.jpg')
+      .backgroundImageUrl('//unpkg.com/three-globe/example/img/night-sky.png')
+      .width(1000)
+      .hexBinPointLat(d => d.geometry.coordinates[1])
+      .hexBinPointLng(d => d.geometry.coordinates[0])
+      .hexBinPointWeight(d => d.properties.mag)
+      .hexAltitude(({ sumWeight }) => sumWeight * 0.0025)
+      .hexTopColor(d => weightColor(d.sumWeight))
+      .hexSideColor(d => weightColor(d.sumWeight))
+      .hexLabel(d => `
+        <b>${d.points.length}</b> earthquakes in the past month:<ul><li>
+          ${d.points.slice().sort((a, b) => b.properties.mag - a.properties.mag).map(d => d.properties.title).join('</li><li>')}
+        </li></ul>
+      `)
+      (document.getElementById('globeViz'));
+
+    fetch('../data/quakes.geojson').then(res => res.json()).then(equakes => {
+      myGlobe.hexBinPointsData(equakes.features);
+    });
+
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="earthquakes.js"></script>
+</body>
