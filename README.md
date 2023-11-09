@@ -4,7 +4,7 @@ This project visualizes disaster data of forest cover, active volcanoes, and ear
 
 This project is deployed globally. To view the project, clicck the link
 
- `[[link text](https://3d-visualization-of-spatial-data-for-disaster-analysis.vercel.app/)]([link URL](https://3d-visualization-of-spatial-data-for-disaster-analysis.vercel.app/))`
+`[https://3d-visualization-of-spatial-data-for-disaster-analysis.vercel.app/](https://3d-visualization-of-spatial-data-for-disaster-analysis.vercel.app/)`
 
 ## Features
 
